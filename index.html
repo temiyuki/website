@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Site</title>
+    <title>What is Miyuki doing today?</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,12 +17,30 @@
             padding: 1rem;
             text-align: center;
         }
-        main {
+        .tab {
+            display: inline-block;
+            margin: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+        .tab:hover {
+            background-color: #ccc;
+        }
+        .tab.active {
+            background-color: #fff;
+            border-bottom: 2px solid #333;
+        }
+        .tab-content {
+            display: none;
             padding: 2rem;
             text-align: center;
         }
+        .tab-content.active {
+            display: block;
+        }
         footer {
-            background-color: #333;
+            background-color: #F5A5E4;
             color: white;
             padding: 1rem;
             text-align: center;
@@ -42,13 +60,53 @@
 <body>
     <header>
         <h1>What is Miyuki doing today?</h1>
+        <div>
+            <span class="tab active" onclick="openTab(event, 'home')">Home</span>
+            <span class="tab" onclick="openTab(event, 'recipes')">Recipes</span>
+            <span class="tab" onclick="openTab(event, 'tech')">Tech/Engineering</span>
+            <span class="tab" onclick="openTab(event, 'japan')">Japan Photo Gallery</span>
+        </div>
     </header>
     <main>
-        <p>Test text</p>
-        <p>Check out more about GitHub Pages <a href="https://pages.github.com/" target="_blank">here</a>.</p>
+        <div id="home" class="tab-content active">
+            <p>Test text</p>
+            <p>Check out more about GitHub Pages <a href="https://pages.github.com/" target="_blank">here</a>.</p>
+        </div>
+        <div id="recipes" class="tab-content">
+            <h2>Recipes</h2>
+            <p>Here you will find a collection of my favorite recipes.</p>
+            <!-- Add more content for recipes here -->
+        </div>
+        <div id="tech" class="tab-content">
+            <h2>Tech/Engineering</h2>
+            <p>Explore articles and projects related to technology and engineering.</p>
+            <!-- Add more content for tech/engineering here -->
+        </div>
+        <div id="japan" class="tab-content">
+            <h2>Japan Photo Gallery</h2>
+            <p>Browse through a gallery of pictures from Japan.</p>
+            <!-- Add more content for Japan gallery here -->
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 What is Miyuki doing today</p>
     </footer>
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 </body>
 </html>
