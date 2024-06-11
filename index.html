@@ -23,13 +23,17 @@
             padding: 0.5rem 1rem;
             background-color: #ddd;
             cursor: pointer;
+            border-radius: 5px;
         }
         .tab:hover {
             background-color: #ccc;
         }
         .tab.active {
             background-color: #fff;
-            border-bottom: 2px solid #333;
+            border-bottom: 2px solid #F5A5E4;
+            font-weight: bold;
+            color: #F5A5E4;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .tab-content {
             display: none;
@@ -89,7 +93,7 @@
         </div>
     </main>
     <footer>
-        <p>&copy; 2024 What is Miyuki doing today</p>
+        <p>&copy; 2024 What is Miyuki doing today?</p>
     </footer>
     <script>
         function openTab(evt, tabName) {
